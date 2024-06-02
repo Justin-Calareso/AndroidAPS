@@ -100,7 +100,6 @@
     <string name="not_connected">Neprisijungta</string>
     <string name="read_only">Tik skaityti</string>
     <string name="working">Dirbama</string>
-    <!-- xDrip status line -->
     <!-- Xdrip StatusLine -->
     <string name="xdrip">xDrip+</string>
     <string name="xdrip_shortname">XD</string>
@@ -117,11 +116,9 @@
     <string name="xdrip_local_broadcasts_summary">Siųsti glikemijos ir terapijos duomenis į xDrip+. Turi būti pasirinktas duomenų šaltinis „xDrip+ Sync Follower“, o duomenų priėmimas turi būti įjungtas skiltyje Nustatymai – Programų sąveikos nustatymai – Priimti glikemiją/terapiją</string>
     <string name="xdrip_local_broadcasts_title">Įjungti duomenų perdavimą į xDrip+.</string>
     <!--    DataBroadcast-->
-    <string name="data_broadcaster">Data Broadcaster</string>
     <!-- GarminPlugin -->
     <string name="garmin">Garmin</string>
     <string name="garmin_description">Susiejimas su Garmin (Fenix, Edge, …)</string>
-    <string name="key_garmin_settings">Garmin nustatymai</string>
     <!--    Wear-->
     <string name="description_wear">Stebėti ir kontroliuoti AndroidAPS naudojant WearOS laikrodį.</string>
     <string name="no_watch_connected">(nėra prijungto laikrodžio)</string>

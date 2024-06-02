@@ -1,7 +1,7 @@
 object KtsBuildVersions {
 
-    const val gradle = "8.1.3"
-    const val kotlin = "1.9.0"
+    const val gradle = "8.4.0"
+    const val kotlin = "1.9.23"
 }
 
 plugins {
