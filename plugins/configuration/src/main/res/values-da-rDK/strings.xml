@@ -94,7 +94,6 @@
     <string name="check_preferences_before_import">Tjek venligst præferencer før importering:</string>
     <string name="check_preferences_cannot_import">Præferencer kan ikke importeres!</string>
     <string name="check_preferences_dangerous_import">Præferencer bør ikke importeres!</string>
-    <string name="nav_export">Eksporter indstillinger</string>
     <string name="export_to">Eksporter indstillinger til</string>
     <string name="import_from">Importer indstillinger fra</string>
     <string name="setting_imported">Indstillinger importeret</string>
@@ -107,7 +106,6 @@
     <string name="restartingapp">Afslutter applikationen for at anvende indstillinger.</string>
     <string name="ue_exported">Brugerindtastninger exporteret</string>
     <string name="protection">Beskyttelse</string>
-    <string name="master_password_missing">Hovedadgangskode er ikke angivet!\n\nAngiv venligst din hovedadgangskode i præferencer (%1$s &#8594; %2$s)</string>
     <!--    Maintenance-->
     <string name="maintenance">Vedligeholdelse</string>
     <string name="maintenance_shortname">MAINT</string>

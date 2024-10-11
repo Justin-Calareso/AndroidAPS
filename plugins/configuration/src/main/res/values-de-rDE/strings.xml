@@ -94,7 +94,6 @@
     <string name="check_preferences_before_import">Überprüfe die Einstellungen vor dem Import:</string>
     <string name="check_preferences_cannot_import">Einstellungen können nicht importiert werden!</string>
     <string name="check_preferences_dangerous_import">Einstellungen sollten nicht importiert werden!</string>
-    <string name="nav_export">Einstellungen exportieren</string>
     <string name="export_to">Einstellungen exportieren nach</string>
     <string name="import_from">Importiere Einstellungen von</string>
     <string name="setting_imported">Einstellungen importiert</string>
@@ -107,7 +106,6 @@
     <string name="restartingapp">App wird beendet, um neue Einstellungen zu laden.</string>
     <string name="ue_exported">Benutzereinträge exportiert</string>
     <string name="protection">Schutz</string>
-    <string name="master_password_missing">Das Master-Passwort ist nicht festgelegt!\n\nLege Dein Master-Passwort bitte in den Einstellungen fest (%1$s &#8594; %2$s)</string>
     <!--    Maintenance-->
     <string name="maintenance">Wartung</string>
     <string name="maintenance_shortname">WRTNG</string>

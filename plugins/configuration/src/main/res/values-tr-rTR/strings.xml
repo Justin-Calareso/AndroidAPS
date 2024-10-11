@@ -94,7 +94,6 @@
     <string name="check_preferences_before_import">Lütfen içe aktarmadan önce tercihleri kontrol edin:</string>
     <string name="check_preferences_cannot_import">Tercihler içe aktarılamaz!</string>
     <string name="check_preferences_dangerous_import">Tercihler içe aktarılmamalıdır!</string>
-    <string name="nav_export">Dışarı aktarma ayarları</string>
     <string name="export_to">Ayarları aktar</string>
     <string name="import_from">Ayarları içe aktar</string>
     <string name="setting_imported">Ayarlar içe aktarıldı</string>
@@ -107,7 +106,6 @@
     <string name="restartingapp">Ayarları uygulamak için uygulamadan çıkılıyor.</string>
     <string name="ue_exported">Kullanıcı Girişleri dışa aktarıldı</string>
     <string name="protection">Güvenlik</string>
-    <string name="master_password_missing">Ana parola belirlenmedi!\n\nLütfen Ana parolanızı Tercihler\'de belirleyin (%1$s &#8594; %2$s)</string>
     <!--    Maintenance-->
     <string name="maintenance">Bakım</string>
     <string name="maintenance_shortname">BAKIM</string>

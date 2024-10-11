@@ -98,7 +98,6 @@
     <string name="check_preferences_before_import">Please check preferences before importing:</string>
     <string name="check_preferences_cannot_import">Preferences cannot be imported!</string>
     <string name="check_preferences_dangerous_import">Preferences should not be imported!</string>
-    <string name="nav_export">Export settings</string>
     <string name="export_to">Export settings to</string>
     <string name="import_from">Import settings from</string>
     <string name="setting_imported">Settings imported</string>
@@ -111,7 +110,7 @@
     <string name="restartingapp">Exiting application to apply settings.</string>
     <string name="ue_exported">User Entries exported</string>
     <string name="protection">Protection</string>
-    <string name="master_password_missing">Master password is not set!\n\nPlease set your Master password in Preferences (%1$s &#8594; %2$s)</string>
+    <string name="master_password_missing">Master password is not set!\n\nPlease set your Master password in Preferences (%1$s)</string>
 
 
     <!--    Maintenance-->

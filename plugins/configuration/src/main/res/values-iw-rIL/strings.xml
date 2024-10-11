@@ -94,7 +94,6 @@
     <string name="check_preferences_before_import">בדקו את ההעדפות לפני ביצוע הייבוא:</string>
     <string name="check_preferences_cannot_import">ההעדפות לא ניתנות לייבוא!</string>
     <string name="check_preferences_dangerous_import">אין לייבא העדפות אלה!</string>
-    <string name="nav_export">ייצוא הגדרות</string>
     <string name="export_to">ייצא הגדרות ל-</string>
     <string name="import_from">יבא הגדרות מ-</string>
     <string name="setting_imported">הגדרות מיובאות</string>
@@ -107,7 +106,7 @@
     <string name="restartingapp">יוצא מ-AAPS כדי להחיל הגדרות.</string>
     <string name="ue_exported">רשומות המשתמש יוצאו</string>
     <string name="protection">הגנה בסיסמאות</string>
-    <string name="master_password_missing">הסיסמה הראשית לא הוגדרה!\n\nנא להגדירה בהעדפות (%1$s&#8594;%2$s)</string>
+    <string name="master_password_missing">הסיסמה הראשית לא הוגדרה!\n\nנא להגדירה בהעדפות (%1$s)</string>
     <!--    Maintenance-->
     <string name="maintenance">תחזוקה</string>
     <string name="maintenance_shortname">תחזוקה</string>
