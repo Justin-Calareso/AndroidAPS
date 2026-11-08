@@ -91,6 +91,7 @@ import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesBinding
 import dev.zacsweers.metro.Inject
 import dev.zacsweers.metro.SingleIn
+import kotlin.math.abs
 
 @ContributesBinding(AppScope::class)
 @SingleIn(AppScope::class)
@@ -338,7 +339,7 @@ class UserEntryPresentationHelperImpl(
         val fullValueWithUnitList = ArrayList(entry.values)
         val timestampRec = entry.timestamp.toString()
         val dateTimestampRev = dateUtil.dateAndTimeAndSecondsString(entry.timestamp)
-        val utcOffset = dateUtil.timeStringFromSeconds((entry.utcOffset / 1000).toInt())
+        val utcOffset = formatUtcOffset(entry.utcOffset)
         val action = csvString(entry.action)
         var therapyEvent = ""
         val source = translator.translate(entry.source)
@@ -398,4 +399,20 @@ class UserEntryPresentationHelperImpl(
 
     private fun String.addWithSeparator(add: Any) =
         this + (if (this.isBlank()) "" else " / ") + add.toString()
+}
+
+/**
+ * A UTC offset as `+HH:MM` / `-HH:MM`, e.g. `-05:00` for New York in winter.
+ *
+ * The CSV used to format the offset as a time of day (`timeStringFromSeconds`). A time of day cannot
+ * be negative, so every user west of UTC got an exception and an empty export, and east of UTC the
+ * column showed a clock time instead of an offset.
+ */
+internal fun formatUtcOffset(offsetMs: Long): String {
+    val totalMinutes = offsetMs / 60_000L
+    val sign = if (totalMinutes < 0) "-" else "+"
+    val minutes = abs(totalMinutes)
+    val hh = (minutes / 60).toString().padStart(2, '0')
+    val mm = (minutes % 60).toString().padStart(2, '0')
+    return "$sign$hh:$mm"
 }
