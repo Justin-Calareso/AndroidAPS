@@ -221,6 +221,12 @@
     <string name="pref_title_smb_max_minutes">Max minutes of basal to limit SMB</string>
     <string name="pref_title_uam_smb_max_minutes">UAM max minutes of basal to limit SMB</string>
     <string name="uam_smb_max_minutes">UAM SMB max minutes</string>
+    <string name="pref_title_smb_ratio_bg_range">SMB size by glucose: range (mg/dL)</string>
+    <string name="smb_ratio_bg_range_summary">0 = off: every SMB is half of the needed insulin. Above 0: near the target an SMB is smaller, and it grows in a straight line over this many mg/dL above the target, up to the size at high glucose.</string>
+    <string name="pref_title_smb_ratio_at_target">SMB size by glucose: at target</string>
+    <string name="smb_ratio_at_target_summary">Part of the needed insulin that one SMB gives when glucose is at the target. 0.5 is half. Used only when the range is above 0.</string>
+    <string name="pref_title_smb_ratio_max">SMB size by glucose: high glucose</string>
+    <string name="smb_ratio_max_summary">Part of the needed insulin that one SMB gives when glucose is at the target plus the range, or higher. 0.5 is half. Used only when the range is above 0.</string>
     <string name="pref_title_carbs_request_threshold">Carbs required threshold</string>
     <string name="carbs_req_threshold_summary">Minimum grams of carbs to display a carbs suggestion alert. Carbs suggestions below this number will not trigger a notification.</string>
     <string name="pref_title_half_basal_exercise_target">Half basal exercise target</string>

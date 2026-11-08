@@ -412,7 +412,10 @@ open class OpenAPSSMBPlugin(
             out_units = if (profileFunction.getUnits() == GlucoseUnit.MMOL) "mmol/L" else "mg/dl",
             variable_sens = if (dynIsfMode) dynIsfResult.variableSensitivity ?: 0.0 else 0.0,
             insulinDivisor = dynIsfResult.insulinDivisor,
-            TDD = dynIsfResult.tdd ?: 0.0
+            TDD = dynIsfResult.tdd ?: 0.0,
+            smb_delivery_ratio_at_target = preferences.get(DoubleKey.ApsSmbRatioAtTarget),
+            smb_delivery_ratio_max = preferences.get(DoubleKey.ApsSmbRatioMax),
+            smb_delivery_ratio_bg_range = preferences.get(IntKey.ApsSmbRatioBgRange).toDouble()
         )
         val microBolusAllowed = constraintsChecker.isSMBModeEnabled(ConstraintObject(tempBasalFallback.not(), aapsLogger)).also { inputConstraints.copyReasons(it) }.value()
         val flatBGsDetected = bgQualityCheck.state == BgQualityCheck.State.FLAT
@@ -570,6 +573,9 @@ open class OpenAPSSMBPlugin(
             IntKey.ApsMaxSmbFrequency,
             IntKey.ApsMaxMinutesOfBasalToLimitSmb,
             IntKey.ApsUamMaxMinutesOfBasalToLimitSmb,
+            IntKey.ApsSmbRatioBgRange,
+            DoubleKey.ApsSmbRatioAtTarget,
+            DoubleKey.ApsSmbRatioMax,
             BooleanKey.ApsUseUam,
             IntKey.ApsCarbsRequestThreshold,
             PreferenceSubScreenDef(

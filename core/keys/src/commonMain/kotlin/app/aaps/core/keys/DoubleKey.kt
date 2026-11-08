@@ -133,6 +133,32 @@ enum class DoubleKey(
         unitType = UnitType.DOUBLE,
         sync = SyncSpec(SyncChannel.Cold, SyncDirection.Bidirectional)
     ),
+    /** OpenAPS SMB: part of insulinReq given as one SMB at the target. Used only when [IntKey.ApsSmbRatioBgRange] is above 0. */
+    ApsSmbRatioAtTarget(
+        key = "smb_ratio_at_target",
+        defaultValue = 0.5,
+        min = 0.1,
+        max = 0.5,
+        title = KeysStrings.pref_title_smb_ratio_at_target,
+        summary = KeysStrings.smb_ratio_at_target_summary,
+        defaultedBySM = true,
+        dependency = BooleanKey.ApsUseSmb,
+        unitType = UnitType.DOUBLE_2,
+        sync = SyncSpec(SyncChannel.Cold, SyncDirection.Bidirectional)
+    ),
+    /** OpenAPS SMB: part of insulinReq given as one SMB at target + range and above. Used only when [IntKey.ApsSmbRatioBgRange] is above 0. */
+    ApsSmbRatioMax(
+        key = "smb_ratio_max",
+        defaultValue = 0.5,
+        min = 0.5,
+        max = 0.8,
+        title = KeysStrings.pref_title_smb_ratio_max,
+        summary = KeysStrings.smb_ratio_max_summary,
+        defaultedBySM = true,
+        dependency = BooleanKey.ApsUseSmb,
+        unitType = UnitType.DOUBLE_2,
+        sync = SyncSpec(SyncChannel.Cold, SyncDirection.Bidirectional)
+    ),
     ApsAmaBolusSnoozeDivisor(
         key = "bolussnooze_dia_divisor",
         defaultValue = 2.0,

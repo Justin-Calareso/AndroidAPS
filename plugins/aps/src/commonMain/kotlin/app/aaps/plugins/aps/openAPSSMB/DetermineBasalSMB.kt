@@ -1164,9 +1164,11 @@ class DetermineBasalSMB(
                     consoleError.add("profile.maxSMBBasalMinutes: ${profile.maxSMBBasalMinutes} profile.current_basal: ${profile.current_basal}")
                     maxBolus = round(profile.current_basal * profile.maxSMBBasalMinutes / 60, 1)
                 }
-                // bolus 1/2 the insulinReq, up to maxBolus, rounding down to nearest bolus increment
+                // bolus a part of the insulinReq (1/2 unless SMB size by glucose is set), up to maxBolus,
+                // rounding down to nearest bolus increment
+                val smbRatio = smbDeliveryRatio(bg, target_bg, profile)
                 val roundSMBTo = 1 / profile.bolus_increment
-                val microBolus = floor(min(insulinReq / 2, maxBolus) * roundSMBTo) / roundSMBTo
+                val microBolus = floor(min(insulinReq * smbRatio, maxBolus) * roundSMBTo) / roundSMBTo
                 // calculate a long enough zero temp to eventually correct back up to target
                 val smbTarget = target_bg
                 val worstCaseInsulinReq = (smbTarget - (naive_eventualBG + minIOBPredBG) / 2.0) / sens
@@ -1200,6 +1202,9 @@ class DetermineBasalSMB(
                     durationReq = 30
                 }
                 rT.reason.append(" insulinReq $insulinReq")
+                if (smbRatio != DEFAULT_SMB_DELIVERY_RATIO) {
+                    rT.reason.append("; SMB ratio ${round(smbRatio, 2)}")
+                }
                 if (microBolus >= maxBolus) {
                     rT.reason.append("; maxBolus $maxBolus")
                 }

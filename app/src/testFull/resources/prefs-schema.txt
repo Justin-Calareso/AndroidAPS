@@ -441,6 +441,9 @@ simple_mode|BooleanKey|true
 site_rotation_manage_cgm|BooleanKey|true
 site_rotation_manage_pump|BooleanKey|true
 site_rotation_user_profile|IntKey|true
+smb_ratio_at_target|DoubleKey|true
+smb_ratio_bg_range|IntKey|true
+smb_ratio_max|DoubleKey|true
 smbinterval|IntKey|true
 smbmaxminutes|IntKey|true
 smscommunicator_allowednumbers|StringKey|true

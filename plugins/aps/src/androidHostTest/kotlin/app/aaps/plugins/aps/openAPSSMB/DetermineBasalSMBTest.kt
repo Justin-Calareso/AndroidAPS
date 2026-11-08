@@ -13,6 +13,7 @@ import app.aaps.shared.tests.TestBaseWithProfile
 import com.google.common.truth.Truth.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import kotlin.math.floor
 
 /**
  * Guards against non-finite values escaping the algorithm.
@@ -285,6 +286,59 @@ class DetermineBasalSMBTest : TestBaseWithProfile() {
             flatBGsDetected = false,
             dynIsfMode = false
         )
+    }
+
+    // --- SMB size by glucose -------------------------------------------------------------------
+
+    /**
+     * BG 150 and rising with insulin on board but no insulin activity yet, so the predictions stay
+     * high and an SMB is wanted. [runWithSmb] cannot be used here: its insulinReq is below zero.
+     */
+    private fun runWantingSmb(profile: OapsProfile): RT =
+        sut.determine_basal(
+            glucose_status = glucoseStatus(),
+            currenttemp = CurrentTemp(0, 0.0, null),
+            iob_data_array = iobArray(),
+            profile = profile,
+            autosens_data = AutosensResult(ratio = 1.0),
+            meal_data = noMeal(),
+            microBolusAllowed = true,
+            currentTime = currentTime,
+            flatBGsDetected = false,
+            dynIsfMode = false
+        )
+
+    /** What determine_basal gives as one SMB for [ratio], from the same insulinReq and the 30 min cap. */
+    private fun expectedSmb(rT: RT, ratio: Double): Double {
+        val maxBolus = 0.5 // current_basal 1.0 * maxUAMSMBBasalMinutes 30 / 60
+        return floor(minOf(rT.insulinReq!! * ratio, maxBolus) * 10) / 10
+    }
+
+    @Test
+    fun `without a range the SMB is half of insulinReq and the reason does not mention a ratio`() {
+        val rT = runWantingSmb(profile().copy(enableSMB_always = true))
+
+        // Fail loudly if the fixture stopped wanting an SMB, otherwise this passes for the wrong reason.
+        assertThat(rT.insulinReq!!).isGreaterThan(0.0)
+        assertThat(rT.units ?: 0.0).isEqualTo(expectedSmb(rT, 0.5))
+        assertThat(rT.reason.toString()).doesNotContain("SMB ratio")
+    }
+
+    @Test
+    fun `with a range the SMB follows the ratio for the current glucose`() {
+        // BG 150, target 100: halfway along a 100 mg/dL range from 0.2 to 0.5 is 0.35.
+        val rT = runWantingSmb(
+            profile().copy(
+                enableSMB_always = true,
+                smb_delivery_ratio_at_target = 0.2,
+                smb_delivery_ratio_max = 0.5,
+                smb_delivery_ratio_bg_range = 100.0
+            )
+        )
+
+        assertThat(rT.insulinReq!!).isGreaterThan(0.0)
+        assertThat(rT.reason.toString()).contains("SMB ratio 0.35")
+        assertThat(rT.units ?: 0.0).isEqualTo(expectedSmb(rT, 0.35))
     }
 
     // --- enable_smb and the temp target thresholds ---------------------------------------------

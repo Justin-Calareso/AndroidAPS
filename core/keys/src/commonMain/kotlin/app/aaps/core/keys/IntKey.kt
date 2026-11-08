@@ -337,6 +337,22 @@ enum class IntKey(
         unitType = UnitType.MIN,
         sync = SyncSpec(SyncChannel.Cold, SyncDirection.Bidirectional)
     ),
+    /**
+     * OpenAPS SMB: mg/dL above the target over which the SMB size grows from [DoubleKey.ApsSmbRatioAtTarget]
+     * to [DoubleKey.ApsSmbRatioMax]. 0 switches it off: every SMB is half of insulinReq, as in oref.
+     */
+    ApsSmbRatioBgRange(
+        key = "smb_ratio_bg_range",
+        defaultValue = 0,
+        min = 0,
+        max = 150,
+        title = KeysStrings.pref_title_smb_ratio_bg_range,
+        summary = KeysStrings.smb_ratio_bg_range_summary,
+        defaultedBySM = true,
+        dependency = BooleanKey.ApsUseSmb,
+        unitType = UnitType.MGDL,
+        sync = SyncSpec(SyncChannel.Cold, SyncDirection.Bidirectional)
+    ),
     ApsCarbsRequestThreshold(
         key = "carbsReqThreshold",
         defaultValue = 1,

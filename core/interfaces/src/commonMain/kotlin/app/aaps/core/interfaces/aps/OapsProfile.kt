@@ -47,5 +47,9 @@ data class OapsProfile(
     //DynISF only
     var variable_sens: Double,
     var insulinDivisor: Int,
-    var TDD: Double
+    var TDD: Double,
+    // OpenAPS SMB only: SMB size by glucose. A range of 0 keeps oref's fixed half of insulinReq.
+    var smb_delivery_ratio_at_target: Double = 0.5,
+    var smb_delivery_ratio_max: Double = 0.5,
+    var smb_delivery_ratio_bg_range: Double = 0.0
 )
