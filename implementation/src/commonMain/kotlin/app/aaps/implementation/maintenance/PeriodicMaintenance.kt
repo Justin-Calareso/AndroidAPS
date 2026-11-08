@@ -142,6 +142,12 @@ class PeriodicMaintenance(
 
         /** One day per daily pass, plus room for a pass that runs late. */
         val MAX_CUTOFF_STEP = 2.days
-        const val KEEP_LOG_FILES = 30
+
+        /**
+         * Rotated log files to keep. A file is 5 MB of log (about 0.7 MB zipped), and a busy set-up
+         * writes about 5 a day, so 30 kept only 4-5 days - too short to check a settings change against
+         * the loop's own decisions. 200 keeps roughly 4-6 weeks for about 140 MB.
+         */
+        const val KEEP_LOG_FILES = 200
     }
 }
