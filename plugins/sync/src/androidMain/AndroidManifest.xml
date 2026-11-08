@@ -16,6 +16,8 @@
     <uses-permission android:name="android.permission.RECEIVE_MMS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- PhoneStepsPlugin reads the phone's step counter. -->
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
     <uses-permission android:name="app.aaps.weardata.permission" />
     <!-- For DataLayerListenerServiceMobile below. -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />

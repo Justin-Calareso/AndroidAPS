@@ -159,6 +159,13 @@
     <string name="tizen">External Companion Apps</string>
     <string name="tizen_description">Enables data broadcasting to various external companion apps</string>
 
+    <!-- PhoneStepsPlugin -->
+    <string name="phone_steps">Phone step counter</string>
+    <string name="phone_steps_description">Counts your steps with the phone\'s own sensor, so automation rules can use steps without a watch. Keep the phone on you, in a pocket or a bag.</string>
+    <string name="phone_steps_no_sensor">This phone has no step counter</string>
+    <string name="permission_activity_title">Physical activity</string>
+    <string name="permission_activity_description">Needed to read the phone\'s step counter</string>
+
     <!-- GarminPlugin -->
     <string name="garmin">Garmin</string>
     <string name="garmin_description">Connection to Garmin device (Fenix, Edge, …)</string>
